@@ -139,9 +139,12 @@ for key,value in sorted(result.items()):
 predict_inpf = functools.partial(input_fn, predict_file, num_epochs=1,
     shuffle=False, batch_size=100)
 
-### Print prediction results
+### Use classifier for prediction
 
 pred_results = classifier.predict(input_fn=predict_inpf)
+
+### Print prediction results
+
 for i in range(10):
     print(next(pred_results))
 
