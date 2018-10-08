@@ -184,16 +184,24 @@ if __name__ == "__main__":
     parser.register("type", "bool", lambda v: v.lower() == "true")
 
     # Define input parameters needed for distributing jobs
-    parser.add_argument("--ps_hosts", type=str, default="", help="Comma-separated list of hostname:port pairs")
-    parser.add_argument("--worker_hosts", type=str, default="", help="Comma-separated list of hostname:port pairs")
-    parser.add_argument("--num_workers", type=int, default=1,help="Total number of workers")
-    parser.add_argument("--job_name",type=str,default="",help="One of 'ps', 'worker'")
-    parser.add_argument("--task_index",type=int,default=0,help="Index of task within the job")
+    parser.add_argument("--ps_hosts", type=str, default="",
+        help="Comma-separated list of hostname:port pairs")
+    parser.add_argument("--worker_hosts", type=str, default="",
+        help="Comma-separated list of hostname:port pairs")
+    parser.add_argument("--num_workers", type=int, default=1,
+        help="Total number of workers")
+    parser.add_argument("--job_name",type=str,default="",
+        help="One of 'ps', 'worker'")
+    parser.add_argument("--task_index",type=int,default=0,
+        help="Index of task within the job")
 
     # Define other additional input parameters
-    parser.add_argument("--l1", type=float, default=0.0, help="L1 regularisation strength")
-    parser.add_argument("--l2", type=float, default=0.0, help="L2 regularisation strength")
-    parser.add_argument("--batch_size", type=int, default=500, help="Batch size")
+    parser.add_argument("--l1", type=float, default=0.0,
+        help="L1 regularisation strength")
+    parser.add_argument("--l2", type=float, default=0.0,
+        help="L2 regularisation strength")
+    parser.add_argument("--batch_size", type=int, default=500,
+        help="Batch size")
 
     FLAGS, unparsed = parser.parse_known_args()
     tf.logging.set_verbosity(tf.logging.WARN)
