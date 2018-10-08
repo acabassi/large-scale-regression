@@ -105,7 +105,8 @@ regressor.train(train_inpf)
 
 ### Define wrapper for input function for evaluation step
 
-eval_inpf = functools.partial(input_fn, predict_file, num_epochs=1,
+eval_file = "2007.csv"
+eval_inpf = functools.partial(input_fn, eval_file, num_epochs=1,
     shuffle=False, batch_size=100)
 
 ### Evaluate linear regressor
@@ -119,6 +120,7 @@ for key,value in sorted(result.items()):
 
 ### Define wrapper for input function for prediction step
 
+predict_file = "2008.csv"
 predict_inpf = functools.partial(input_fn, predict_file, num_epochs=1,
     shuffle=False, batch_size=100)
 
